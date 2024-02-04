@@ -1,0 +1,52 @@
+import React, {useEffect} from 'react';
+import {props} from "../../../types/propsTypes"
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {useBandActions, useToursAction} from "../../../hooks/useActions";
+
+const LastTourTicketPriceReport = (props: props) => {
+
+    const {fetchTour} = useToursAction()
+    const {fetchBands} = useBandActions()
+    const {bands} = useTypedSelector(state => state.band)
+    const {tours, loading, error} = useTypedSelector(state => state.tours)
+    let lastTour
+
+    console.log(lastTour, bands)
+
+    useEffect(() => {
+        const getBands = async () => {
+            await fetchBands()
+        }
+        getBands().then()
+    }, [])
+
+    const getTours = async (id: number) => {
+        await fetchTour(id)
+    }
+
+    const getLastTour = () => {
+        for (let i = 0; i < tours.length - 1; i++) {
+            lastTour = tours[0]
+            let first_tour_date: string[] = tours[i].end_date.split('-')
+            let second_tour_date: string[] = tours[i + 1].end_date.split('-')
+            for (let j = 0; j < first_tour_date.length; j++) {
+                if (first_tour_date[j] > second_tour_date[j]) {
+                    lastTour = tours[i + 1]
+                    break
+                }
+            }
+        }
+    }
+
+    return (
+        <div>
+            {bands.map(band => (
+                <div>
+
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default LastTourTicketPriceReport;

@@ -1,0 +1,24 @@
+import React from 'react';
+import {useMusicActions, useReportAction} from "../../hooks/useActions";
+
+const Reports: React.FC = () => {
+
+    const {getMusicReport} = useReportAction()
+    const {fetchMusic} = useMusicActions()
+
+    const reportListParameters = [
+        {inset: "Музыка", onClickHandler: fetchMusic}
+    ]
+
+    return (
+        <div>
+            <ul>
+                {reportListParameters.map(report => (
+                    <li onClick={report.onClickHandler}>{report.inset}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default Reports;

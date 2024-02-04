@@ -1,0 +1,11 @@
+import React from 'react';
+
+const DeleteCityWindow = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default DeleteCityWindow;

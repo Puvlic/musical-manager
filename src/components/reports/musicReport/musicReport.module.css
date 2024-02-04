@@ -1,0 +1,21 @@
+import React from 'react';
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import css from "../../musics/musics.module.css";
+
+const MusicReport = () => {
+    const {musicReport, loading, error} = useTypedSelector(state => state.reports)
+
+    if (loading) {
+        return (
+            <div className={css.load_error}>{error}</div>
+        )
+    }
+
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default MusicReport;

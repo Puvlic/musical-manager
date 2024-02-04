@@ -1,0 +1,74 @@
+.delete_window_wrapper {
+    position: fixed;
+    background-color: rgba(0,0,0, .4);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.delete_window_wrapper.open {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.delete_window_wrapper.closed {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.delete_window_content {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    max-width: 20%;
+    min-width: 400px;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    padding: 20px;
+    border-radius: 40px;
+    transition: opacity 0.4s;
+}
+
+.delete_window_content.open {
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+.delete_window_content.closed {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.delete_window_alert {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 26px;
+}
+
+.button_block {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.button {
+    font-size: 16px;
+    margin: 10px;
+    width: 150px;
+    padding: 7px;
+    border-radius: 30px;
+    box-shadow: 0 0 0 rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.button:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+    cursor: pointer;
+}
